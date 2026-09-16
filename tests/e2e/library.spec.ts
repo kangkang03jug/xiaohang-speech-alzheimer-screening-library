@@ -12,7 +12,9 @@ test('English personal library exposes the Paper Pool, Quick Read, and detailed 
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('heading', { name: libraryName })).toBeVisible();
-  const visibleHomeText = await page.locator('body').evaluate((element) => element.textContent ?? '');
+  const visibleHomeText = await page
+    .locator('body')
+    .evaluate((element) => element.textContent ?? '');
   expect(visibleHomeText).not.toMatch(/[\u3400-\u9fff]/);
   await page.getByRole('button', { name: 'Switch to Chinese' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
@@ -30,7 +32,9 @@ test('English personal library exposes the Paper Pool, Quick Read, and detailed 
   await expect(page.getByRole('heading', { name: 'Research Questions' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Experiments & Key Findings' })).toBeVisible();
   await expect(page.getByText(/not individual diagnosis or medical advice/i)).toBeVisible();
-  const visibleDetailText = await page.locator('body').evaluate((element) => element.textContent ?? '');
+  const visibleDetailText = await page
+    .locator('body')
+    .evaluate((element) => element.textContent ?? '');
   expect(visibleDetailText).not.toMatch(/[\u3400-\u9fff]/);
 });
 
@@ -40,7 +44,9 @@ test('Daily Archive lists the initial research reading set', async ({ page }) =>
   await expect(page.getByRole('heading', { name: 'Daily Archive' })).toBeVisible();
   await expect(page.getByRole('link', { name: primaryPaper })).toBeVisible();
   await expect(page.getByRole('link', { name: validationPaper })).toBeVisible();
-  const visibleArchiveText = await page.locator('body').evaluate((element) => element.textContent ?? '');
+  const visibleArchiveText = await page
+    .locator('body')
+    .evaluate((element) => element.textContent ?? '');
   expect(visibleArchiveText).not.toMatch(/[\u3400-\u9fff]/);
 });
 test('hero title wraps long text without overflowing at desktop and mobile widths', async ({
@@ -58,9 +64,7 @@ test('hero title wraps long text without overflowing at desktop and mobile width
     const metrics = await heroTitle.evaluate((element) => {
       const range = document.createRange();
       range.selectNodeContents(element);
-      const lineTops = new Set(
-        Array.from(range.getClientRects(), (rect) => Math.round(rect.top)),
-      );
+      const lineTops = new Set(Array.from(range.getClientRects(), (rect) => Math.round(rect.top)));
       return {
         whiteSpace: getComputedStyle(element).whiteSpace,
         lineCount: lineTops.size,
