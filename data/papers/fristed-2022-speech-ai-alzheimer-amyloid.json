@@ -36,83 +36,82 @@
     "code": null
   },
   "topics": [
+    "阿尔茨海默病",
+    "语音筛查",
+    "数字生物标志物",
     "Alzheimer’s disease",
-    "Speech-based screening",
-    "Amyloid beta",
-    "Automatic story recall",
-    "Digital biomarkers",
-    "Text-pair modeling"
+    "speech-based screening"
   ],
   "reading_basis": "full_text",
   "quick_read": {
-    "tldr": "In a selected cohort of 200 participants with known amyloid-beta (Aβ) and clinical reference status, an automatic story-recall task paired with text-comparison modeling showed research-stage discrimination of Aβ positivity and MCI/mild AD. Importantly, the study analyzed transcripts—not acoustic voice features.",
-    "problem_and_motivation": "The authors explored whether a low-burden, remotely administered story-recall task could help identify early cognitive impairment or Aβ positivity.",
-    "core_method": "Participants immediately and after a short delay retold a standardized story. ParaBLEU compared the source story with each transcript; vector representations fed logistic-regression models evaluated using tournament leave-pair-out cross-validation. The authors also simulated potential referral and PET-scan resource effects.",
-    "key_results": "AUC was 0.77 for Aβ positivity and 0.83 for MCI/mild AD in the full sample. Aβ prediction AUC was 0.82 in the MCI/mild-AD subgroup and 0.71 among cognitively unimpaired participants. Resource effects came from simulation, not a prospective clinical deployment.",
-    "why_it_matters": "The results support further study of story-recall text as a prescreening signal, while underscoring the need for external validation in larger, more representative target populations. The model is not a diagnostic test for individuals."
+    "tldr": "在 200 名已有淀粉样蛋白（Aβ）与临床状态参照信息的参与者中，自动故事回忆任务结合文本对比模型，对 Aβ 阳性及 MCI/轻度 AD 展示研究性区分能力。关键限定：本文分析的是转写文本，不是原始声学特征。",
+    "problem_and_motivation": "作者探索低负担、可远程执行的故事回忆任务能否辅助识别早期认知受损或 Aβ 阳性。",
+    "core_method": "立即及延迟复述标准故事；ParaBLEU 比较原文与复述文本，向逻辑回归提供向量特征，以 tournament leave-pair-out 交叉验证评估，并模拟潜在转诊/PET 资源影响。",
+    "key_results": "全样本 Aβ 阳性 AUC=0.77，MCI/轻度 AD AUC=0.83；分层 Aβ 预测 AUC 为认知受损组 0.82、认知未受损组 0.71。资源影响来自模拟，不是前瞻性临床效果。",
+    "why_it_matters": "支持继续研究故事回忆文本作为预筛信号，但需要更大、更多元目标人群的外部验证；研究模型不能诊断个人。"
   },
   "detail": {
-    "motivation": "Early Alzheimer’s screening needs accessible approaches that can be linked to relevant biomarkers. The authors hypothesized that combining an automatic story-recall task with text-comparison modeling could capture subtle recall and language differences useful for prescreening cognitive impairment and Aβ positivity.",
+    "motivation": "常规认知筛查难以覆盖所有早期风险人群。作者假设自动故事回忆任务结合文本对比模型可能捕捉细微回忆/语言差异，用于认知受损及 Aβ 阳性的非侵入式预筛。",
     "contributions": [
       {
-        "contribution": "Evaluated an automatic story-recall task and text-comparison system in 200 participants from UK and US studies with prior PET/CSF Aβ status and clinical cognitive status.",
+        "contribution": "在英国/美国共 200 名已有 PET 或 CSF Aβ 状态及临床认知状态资料的参与者中评估自动故事回忆任务与文本比较系统。",
         "source": "Abstract, PDF p. 1; Participants, PDF pp. 3–4"
       },
       {
-        "contribution": "Reported classification performance for Aβ and cognitive status, and simulated possible resource effects for primary-care referral and PET prescreening.",
+        "contribution": "报告 Aβ 与认知状态分类表现，并模拟初级保健转诊和 PET 预筛的潜在资源影响。",
         "source": "Abstract, PDF p. 1; Results"
       }
     ],
     "research_questions": [
       {
         "type": "inferred",
-        "question": "Can text-comparison analysis of transcribed automatic story recall identify Aβ positivity and MCI/mild AD?",
-        "how": "ParaBLEU compared the source story with immediate and delayed retellings; logistic-regression models were evaluated against PET/CSF and established clinical classifications.",
-        "answer": "Full-sample AUCs were 0.77 for Aβ positivity and 0.83 for MCI/mild AD. Subgroup Aβ AUCs were 0.82 for MCI/mild AD and 0.71 for cognitively unimpaired participants.",
-        "meaning": "The findings motivate further validation, but moderate discrimination in a selected research cohort does not establish diagnostic performance for individuals.",
+        "question": "自动故事回忆的转写文本经文本对比模型分析后，能否识别 Aβ 阳性及 MCI/轻度 AD？",
+        "how": "ParaBLEU 比较故事原文与即时/延迟复述，将向量表示用于逻辑回归，并以 PET/CSF 和既有临床分类作参照。",
+        "answer": "全样本 Aβ 阳性 AUC=0.77、MCI/轻度 AD AUC=0.83；分层 Aβ 阳性 AUC 在 MCI/轻度 AD 组为 0.82、认知未受损组为 0.71。",
+        "meaning": "结果支持进一步验证，但中等区分度和特定研究队列不能推出个体诊断能力。",
         "source": "Introduction, PDF p. 3 (hypothesis/objective); Abstract, PDF p. 1 (endpoints/results)"
       }
     ],
     "research_questions_empty_reason": null,
     "research_questions_empty_source": null,
-    "method": "Prospective cross-sectional 2×2 design combining sister studies in the UK and US. The 200 participants were aged 54–85; 97 were Aβ-positive and 103 Aβ-negative, while 94 were cognitively unimpaired and 106 had MCI or mild AD. Participants completed immediate and short-delay retellings in an automatic story-recall task. ParaBLEU compared source text with transcripts, and logistic-regression models were assessed using tournament leave-pair-out cross-validation. The inputs were text/transcripts: the study did not evaluate acoustic or prosodic features from raw audio.",
-    "experiments_and_key_findings": "Aβ-positivity AUC was 0.77 in the full sample; MCI/mild-AD AUC was 0.83. Subgroup Aβ AUCs were 0.82 for MCI/mild AD and 0.71 for cognitively unimpaired participants. Simulation estimated an 8.5% increase in MCI detection and a 59.1% reduction in false positives in a primary-care scenario. Aβ PET prescreening was estimated to reduce scans by about 35.3% for MCI and 35.5% for cognitively unimpaired participants. These estimates depend on study-sample metrics and are not equivalent to outcomes from real-world deployment.",
+    "method": "前瞻性横断面 2×2 设计，合并英国与美国研究数据。200 人（54–85 岁；97 名 Aβ 阳性、103 名阴性；94 名认知未受损、106 名 MCI/轻度 AD）完成标准化自动故事回忆的即时与短延迟复述。ParaBLEU 比较源文本与转写复述，逻辑回归以 tournament leave-pair-out 交叉验证预测 Aβ/临床状态。本文输入为文本/转写结果，未评估原始音频的声学或韵律特征。",
+    "experiments_and_key_findings": "Aβ 阳性全样本 AUC=0.77；MCI/轻度 AD AUC=0.83。分层 Aβ 预测：MCI/轻度 AD 组 0.82，认知未受损组 0.71。模拟估计 MCI 场景检出增加 8.5%、误报减少 59.1%；Aβ 阳性 PET 预筛估计可减少约 35.3%（MCI）和 35.5%（认知未受损）的扫描需求。模拟结果依赖研究样本的指标，不等同真实部署效果。",
     "limitations": {
       "author_reported": [
-        "The cohort had limited racial/ethnic representation (193 White, 3 Asian, and 4 Black/African American participants); the authors called for replication in more representative samples. Discussion, PDF p. 10.",
-        "Participants needed access to and the ability to use a smartphone; the authors called for larger, more diverse out-of-sample validation. Discussion, PDF p. 10.",
-        "The analysis used transcripts only and did not evaluate acoustic or temporal features of the audio. Discussion, PDF pp. 10–11.",
-        "Estimated resource savings came from simulation; the authors cautioned that the findings require replication. Discussion, PDF p. 10."
+        "样本种族/族裔代表性有限（193 名白人、3 名亚洲参与者、4 名黑人/非裔美国人），作者要求在更多元人群复制验证；Discussion, PDF p. 10。",
+        "参与者需有智能手机使用能力；作者要求在更大且更多元的样本中进行样本外验证；Discussion, PDF p. 10。",
+        "只分析转写文本，未评估音频声学和时间特征；Discussion, PDF pp. 10–11。",
+        "资源节省结论来自模拟，作者提醒应谨慎解释且需要复制；Discussion, PDF p. 10。"
       ],
       "ai_analysis": [
-        "Participants were selected with known Aβ and diagnostic status, so the cohort does not establish PPV or calibration for low-prevalence population screening.",
-        "AUC is not a substitute for threshold-specific sensitivity, specificity, calibration, or clinical net benefit; decision thresholds need independent evaluation.",
-        "The study used an English-language standardized story-recall task. Its results cannot be assumed to transfer to Mandarin, dialects, bilingual speakers, or different educational and cultural contexts.",
-        "The authors disclosed employment, shareholding, or advisory relationships with Novoic; these disclosures should be considered alongside the results."
+        "参与者已知 Aβ/诊断状态且经筛选，不代表普通人群低患病率场景下的 PPV 或校准表现。",
+        "AUC 不等于指定阈值下的敏感度、特异度、校准或临床净获益，实际决策阈值需要独立验证。",
+        "研究使用英文标准故事回忆任务；不能直接外推到普通话、方言、双语或不同教育文化人群。",
+        "作者披露与 Novoic 的雇佣、持股或顾问关系，解读时应一并关注。"
       ]
     },
-    "relation_to_research": "This is a directly relevant baseline for speech-based Alzheimer’s screening: text and semantic information from story recall may be associated with Aβ status, but this paper did not classify acoustic voice or timbre. Follow-up work should distinguish language content, acoustics, and prosody, and frame outputs as research prescreening signals rather than diagnoses.",
-    "what_can_be_done_next": "Run a preregistered external validation with a locked model and threshold in a larger, consecutively recruited cohort spanning Mandarin, dialects, and educational backgrounds. Report sensitivity, specificity, calibration, PPV/NPV, subgroup errors, and decision-curve results. Compare transcript, acoustic, and prosodic features through ablation/fusion analyses, and ensure a positive screen triggers clinical assessment rather than a diagnosis."
+    "relation_to_research": "这是语音筛查阿尔茨海默方向的直接基线：故事回忆文本/语义信息可能与 Aβ 状态相关；但该文不是声学/音色分类。后续应区分语言内容、声学与韵律信号，并把输出限定为研究性预筛信号而非诊断。",
+    "what_can_be_done_next": "开展预注册外部验证：锁定模型和阈值，在更大、连续入组且覆盖普通话/方言/教育差异的队列测试；报告敏感度、特异度、校准、PPV/NPV、亚组误差和决策曲线。比较文本、声学、韵律的消融/融合，并使阳性结果只触发临床评估。"
   },
   "bibtex": "@article{fristed2022leveraging,\n  title={Leveraging speech and artificial intelligence to screen for early Alzheimer's disease and amyloid beta positivity},\n  author={Fristed, Emil and Skirrow, Caroline and Meszaros, Marton and Lenain, Raphael and Meepegama, Udeepa and Papp, Kathryn V. and Ropacki, Michael and Weston, Jack},\n  journal={Brain Communications}, volume={4}, number={5}, pages={fcac231}, year={2022},\n  doi={10.1093/braincomms/fcac231}\n}",
   "evidence": [
     {
-      "claim": "Sample, reference labels, task, model, cross-validation, and headline AUC results.",
+      "claim": "样本、标签、任务、模型、交叉验证与主要 AUC。",
       "locator": "Abstract, PDF p. 1",
       "url": "https://doi.org/10.1093/braincomms/fcac231"
     },
     {
-      "claim": "Study hypothesis, text-comparison rationale, and research objective.",
+      "claim": "研究假设、文本比较设计与研究目标。",
       "locator": "Introduction, PDF pp. 3–4",
       "url": "https://doi.org/10.1093/braincomms/fcac231"
     },
     {
-      "claim": "Demographic representation, smartphone access, and need for replication/external validation.",
+      "claim": "人口代表性、智能手机使用及复制/外部验证限制。",
       "locator": "Discussion, PDF pp. 10–11",
       "url": "https://doi.org/10.1093/braincomms/fcac231"
     }
   ],
-  "generated_by": "Curated from publisher full text and PubMed metadata; English evidence-linked summary",
+  "generated_by": "Curated from publisher full text and PubMed metadata; Chinese evidence-linked summary",
   "generated_at": "2026-09-16T09:00:00+08:00",
   "updated_at": "2026-09-16T09:00:00+08:00"
 }
