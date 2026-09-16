@@ -28,8 +28,8 @@ paper_selection:
     allowed: true
     require_exact_source: true
 language:
-  explanation: en
-  terminology: en
+  explanation: zh-CN
+  terminology: mixed-zh-en
 daily:
   papers_per_run: 1
   timezone: Asia/Shanghai
