@@ -37,83 +37,86 @@
     "code": null
   },
   "topics": [
+    "阿尔茨海默病",
+    "语音筛查",
+    "数字生物标志物",
     "Alzheimer’s disease",
-    "Speech-based screening",
-    "External validation",
+    "speech-based screening",
+    "外部验证",
     "ADNI4",
-    "Generalizability",
-    "Cross-cohort validation"
+    "泛化能力",
+    "cross-cohort validation"
   ],
   "reading_basis": "official_html",
   "quick_read": {
-    "tldr": "This study tested Storyteller models developed in AMYPRED on ADNI4 clinic and remote cohorts. It found out-of-sample signal, but score thresholds shifted between cohorts, and diagnoses in the large remote cohort were primarily self-reported.",
-    "problem_and_motivation": "Speech-screening research often relies on small samples and internal cross-validation. The authors tested whether models generalize across study cohorts, devices, and populations.",
-    "core_method": "Speech features—including text similarity, lexical, temporal, and acoustic measures—were analyzed in AMYPRED (N=101), then tested in ADNI4’s in-clinic cohort (N=57) and remote digital cohort (N=426).",
-    "key_results": "The abstract reports AUCs of 0.71–0.84 for the best text-based models across cohorts. G-match AUCs were 0.82 in AMYPRED, 0.73 in ADNI4 in-clinic, and 0.75 in ADNI4 remote. Thresholds associated with similar sensitivity shifted across cohorts.",
-    "why_it_matters": "External validation is central to screening research, but a generalization signal does not make thresholds portable or establish clinical validity. The study used English-language materials and does not establish performance for Mandarin speakers or individual diagnosis."
+    "tldr": "研究将 AMYPRED 开发的故事回忆模型放到 ADNI4 临床和远程队列做样本外检验；存在泛化信号，但阈值会漂移，且远程队列诊断主要为自我报告。",
+    "problem_and_motivation": "语音筛查工作常依赖小样本和内部交叉验证；作者检验模型能否跨研究队列、设备及人群泛化。",
+    "core_method": "在 AMYPRED（N=101）分析故事回忆文本相似度、词汇、时间和声学特征，再外测 ADNI4 临床队列（N=57）与远程队列（N=426）。",
+    "key_results": "摘要报告最佳文本相似度/词汇模型跨队列 AUC 0.71–0.84。G-match AUC 为 AMYPRED 0.82、ADNI4 临床 0.73、远程 0.75；相近敏感度下阈值存在队列偏移。",
+    "why_it_matters": "样本外泛化是筛查研究关键，但不能照搬阈值；英文研究结果也不能直接外推到中文或个人诊断。"
   },
   "detail": {
-    "motivation": "For large-scale prescreening, speech models need evaluation outside their development cohort and across different recruitment methods, devices, and demographic groups. The authors used ADNI4 clinic and remote cohorts to assess out-of-sample performance of the Storyteller task.",
+    "motivation": "要用于大规模预筛，语音模型必须在来源队列之外、不同招募方式/设备/人口特征中检验。作者利用 ADNI4 临床及远程样本评估 Storyteller 模型的样本外表现。",
     "contributions": [
       {
-        "contribution": "Developed/evaluated early-AD speech models in AMYPRED and tested them out of sample in ADNI4 clinic and remote cohorts.",
+        "contribution": "用 AMYPRED 开发/评估早期 AD 语音模型，并在 ADNI4 临床与远程队列做样本外验证。",
         "source": "Abstract; Background §§1–2"
       },
       {
-        "contribution": "Compared text-similarity, lexical, temporal, and acoustic features, and documented shifts in G-match score thresholds between cohorts.",
+        "contribution": "比较文本相似度、词汇、时间和声学特征，并报告 G-match 分数阈值在队列间的变化。",
         "source": "Abstract; Results §3.6; Discussion §4.1"
       }
     ],
     "research_questions": [
       {
         "type": "inferred",
-        "question": "Do automatic story-recall models developed in AMYPRED generalize to ADNI4 clinic and remote cohorts with broader device and population variation?",
-        "how": "The authors extracted text-similarity, lexical, temporal, and acoustic features, developed/evaluated models in AMYPRED, and tested them on ADNI4 samples, comparing AUC and sensitivity-related thresholds.",
-        "answer": "G-match AUCs were 0.82 in AMYPRED, 0.73 in ADNI4 in-clinic, and 0.75 in ADNI4 remote. Discrimination persisted out of sample, but absolute score distributions and decision thresholds shifted.",
-        "meaning": "The findings support continued external validation; thresholds require reevaluation in each target population, while self-reported labels and the small clinic sample limit the strength of evidence.",
+        "question": "在 AMYPRED 开发的自动故事回忆模型能否泛化到 ADNI4 临床与远程队列及更广设备/人群？",
+        "how": "提取文本相似度、词汇、时间和声学特征，在 AMYPRED 建模并应用到 ADNI4 样本外测试，比较 AUC、敏感度及相应阈值。",
+        "answer": "G-match AUC：AMYPRED 0.82、ADNI4 临床 0.73、ADNI4 远程 0.75；跨队列保留一定区分能力，但绝对分数/决策阈值发生变化。",
+        "meaning": "支持继续开展外部验证；新目标人群需要阈值再评估，且自报标签与临床小样本限制证据强度。",
         "source": "Introduction / Background §1 (study aim); Abstract; Results §3.6"
       }
     ],
     "research_questions_empty_reason": null,
     "research_questions_empty_source": null,
-    "method": "Three English-language story-recall samples were studied: AMYPRED (N=101, including 46 participants with MCI), ADNI4 in-clinic (N=57, including 13 with MCI), and ADNI4 remote digital (N=426, including 58 self-reporting MCI, mild AD, or dementia). The authors extracted text similarity (G-match), lexical, temporal, and acoustic features and evaluated predictions against clinical or self-reported labels. More than one-third of ADNI4 participants were from historically underrepresented populations.",
-    "experiments_and_key_findings": "The abstract reports AUCs of 0.71–0.84 across cohorts for the best text-similarity/lexical models. G-match AUCs for clinical or self-reported cognitive status were 0.82 in AMYPRED (95% CI 0.74–0.89), 0.73 in ADNI4 in-clinic (0.58–0.86), and 0.75 in remote digital (0.67–0.82). At approximately 0.70 sensitivity, the G-match threshold was about 66.9 in AMYPRED versus 57.7 and 57.8 in ADNI4 in-clinic and remote cohorts, respectively—evidence that score distributions and thresholds were not directly portable.",
+    "method": "三组英文故事回忆样本：AMYPRED（N=101，其中 46 例 MCI，用于建模分析）、ADNI4 临床队列（N=57，其中 13 例 MCI）和 ADNI4 远程数字队列（N=426，其中 58 人自报 MCI、轻度 AD 或痴呆）。提取文本相似度（G-match）、词汇、时间和声学特征；在临床评估或自报标签上比较表现。ADNI4 队列超过三分之一来自历史上代表不足的群体。",
+    "experiments_and_key_findings": "摘要报告文本相似度/词汇模型的跨队列 AUC 为 0.71–0.84。G-match 对临床或自报认知状态的 AUC：AMYPRED 0.82（95% CI 0.74–0.89）、ADNI4 临床 0.73（0.58–0.86）、远程 0.75（0.67–0.82）。约 0.70 敏感度对应阈值在 AMYPRED 约 66.9、ADNI4 临床/远程约 57.7/57.8；提示分数分布和阈值并非直接可迁移。",
     "limitations": {
       "author_reported": [
-        "The ADNI4 in-clinic sample with clinical diagnoses was small; the larger remote cohort relied on less robust self-reported diagnoses. Discussion §4.6.",
-        "Transcription error rates in ADNI4 were not yet fully evaluated; the authors called for research on transcription equity across demographic groups. Discussion §4.6.",
-        "Unsupervised remote recordings used different devices and microphones, potentially affecting audio quality. Discussion §4.6.",
-        "G-match absolute scores and thresholds for target sensitivity varied across cohorts. Discussion §4.1."
+        "ADNI4 临床诊断子样本较小；远程队列较大但依赖自报诊断；Discussion §4.6。",
+        "ADNI4 转写错误率尚未充分评估，作者要求研究不同人口群体的转写公平性；Discussion §4.6。",
+        "远程无监督录音使用不同设备/麦克风，可能影响音频质量；Discussion §4.6。",
+        "作者指出 G-match 绝对分数及目标敏感度阈值存在队列差异；Discussion §4.1。"
       ],
       "ai_analysis": [
-        "All three cohorts used English-language materials; the study provides no direct evidence for Mandarin, dialects, bilingual speakers, or other educational/cultural contexts.",
-        "Remote self-reported diagnoses are less robust than clinical assessment, while the in-clinic cohort included only 57 participants; discrimination should not be read as definitive diagnostic performance.",
-        "Target-population prevalence changes PPV/NPV. Even with a similar AUC, deployment thresholds require prespecified calibration and independent validation.",
-        "Several authors disclosed employment or shareholding relationships with Novoic, the commercial developer of Storyteller; consider these disclosures alongside the out-of-sample results and validation design."
+        "三组均使用英语测试材料；对普通话、方言、双语人群及不同教育文化背景没有直接证据。",
+        "远程自报诊断不如临床诊断稳健，临床队列仅 57 人；区分度不等于确定诊断效能。",
+        "目标人群患病率会改变 PPV/NPV；即使 AUC 稳定，部署阈值仍需预先校准并独立验证。",
+        "多位作者披露与 Storyteller 商业开发方 Novoic 的雇佣/持股关系，应结合样本外结果及预设验证设计审视。"
       ]
     },
-    "relation_to_research": "As a follow-up to earlier Aβ/cognitive-screening work, this paper asks whether speech-model signals persist outside their source cohort. For XiaoHang’s research direction, it highlights independent test cohorts, threshold stability, label quality, and cross-language fairness as central design questions—not just internal AUC.",
-    "what_can_be_done_next": "Conduct prospective, multicenter external validation in Chinese-speaking populations. Freeze feature extraction, model, and thresholds in advance; report AUC, sensitivity, specificity, calibration, and PPV/NPV by site, language/dialect, age, and education. Compare remote self-reports with standardized clinical assessments and biomarker-confirmed subsamples, and audit microphone variation, transcription errors, and dropout bias."
+    "relation_to_research": "承接早期 Aβ/认知筛查工作，本研究直接检验模型离开来源队列后是否仍有信号。它提示研究设计应把独立测试集、阈值稳定性、标签质量和跨语言公平性纳入主问题，而不只追求内部 AUC。",
+    "what_can_be_done_next": "在中文人群开展前瞻多中心外部验证；预先冻结特征、模型与阈值，按中心/语言/方言/年龄/教育报告 AUC、敏感度、特异度、校准和 PPV/NPV。将远程自报标签与标准化临床评估及生物标志物子样本核对，并审计麦克风、转写误差与退出偏倚。"
   },
   "bibtex": "@article{skirrow2024storyteller,\n  title={Storyteller in ADNI4: Application of an early Alzheimer's disease screening tool using brief, remote, and speech-based testing},\n  author={Skirrow, Caroline and Meepegama, Udeepa and Weston, Jack and Miller, Melanie J. and Nosheny, Rachel L. and Albala, Bruce and Weiner, Michael W. and Fristed, Emil},\n  journal={Alzheimer's & Dementia}, volume={20}, number={10}, pages={7248--7262}, year={2024},\n  doi={10.1002/alz.14206}\n}",
   "evidence": [
     {
-      "claim": "Study aim, three cohorts, speech-feature types, and overall sample-out generalization.",
+      "claim": "研究目标、三组队列、特征类型和总体样本外表现。",
       "locator": "Abstract; Background §§1–2",
       "url": "https://doi.org/10.1002/alz.14206"
     },
     {
-      "claim": "G-match AUCs in AMYPRED and both independent ADNI4 cohorts.",
+      "claim": "G-match 在 AMYPRED 与两组 ADNI4 队列的 AUC。",
       "locator": "Results §3.6",
       "url": "https://doi.org/10.1002/alz.14206"
     },
     {
-      "claim": "Threshold shifts and limitations in labels and recording conditions.",
+      "claim": "队列间阈值偏移以及标签/录音条件限制。",
       "locator": "Discussion §§4.1, 4.6",
       "url": "https://doi.org/10.1002/alz.14206"
     }
   ],
-  "generated_by": "Curated from publisher full text and PubMed metadata; English evidence-linked summary",
+  "generated_by": "Curated from publisher full text and PubMed metadata; Chinese evidence-linked summary",
   "generated_at": "2026-09-16T09:00:00+08:00",
   "updated_at": "2026-09-16T09:00:00+08:00"
 }
