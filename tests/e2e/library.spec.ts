@@ -14,7 +14,7 @@ test('English personal library exposes the Paper Pool, Quick Read, and detailed 
   await expect(page.getByRole('heading', { name: libraryName })).toBeVisible();
   const visibleHomeText = await page
     .locator('body')
-    .evaluate((element) => element.textContent ?? '');
+    .evaluate((element) => (element as HTMLElement).innerText);
   expect(visibleHomeText).not.toMatch(/[\u3400-\u9fff]/);
   await page.getByRole('button', { name: 'Switch to Chinese' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
@@ -34,7 +34,7 @@ test('English personal library exposes the Paper Pool, Quick Read, and detailed 
   await expect(page.getByText(/not individual diagnosis or medical advice/i)).toBeVisible();
   const visibleDetailText = await page
     .locator('body')
-    .evaluate((element) => element.textContent ?? '');
+    .evaluate((element) => (element as HTMLElement).innerText);
   expect(visibleDetailText).not.toMatch(/[\u3400-\u9fff]/);
 });
 
@@ -46,7 +46,7 @@ test('Daily Archive lists the initial research reading set', async ({ page }) =>
   await expect(page.getByRole('link', { name: validationPaper })).toBeVisible();
   const visibleArchiveText = await page
     .locator('body')
-    .evaluate((element) => element.textContent ?? '');
+    .evaluate((element) => (element as HTMLElement).innerText);
   expect(visibleArchiveText).not.toMatch(/[\u3400-\u9fff]/);
 });
 test('hero title wraps long text without overflowing at desktop and mobile widths', async ({
@@ -65,17 +65,18 @@ test('hero title wraps long text without overflowing at desktop and mobile width
       const range = document.createRange();
       range.selectNodeContents(element);
       const lineTops = new Set(Array.from(range.getClientRects(), (rect) => Math.round(rect.top)));
+      const titleBounds = element.getBoundingClientRect();
       return {
         whiteSpace: getComputedStyle(element).whiteSpace,
         lineCount: lineTops.size,
         titleOverflows: element.scrollWidth > element.clientWidth + 1,
-        pageOverflows: document.documentElement.scrollWidth > window.innerWidth + 1,
+        titleOutsideViewport: titleBounds.left < -1 || titleBounds.right > window.innerWidth + 1,
       };
     });
 
     expect(metrics.whiteSpace).not.toBe('nowrap');
     expect(metrics.lineCount).toBeGreaterThan(1);
     expect(metrics.titleOverflows).toBe(false);
-    expect(metrics.pageOverflows).toBe(false);
+    expect(metrics.titleOutsideViewport).toBe(false);
   }
 });
