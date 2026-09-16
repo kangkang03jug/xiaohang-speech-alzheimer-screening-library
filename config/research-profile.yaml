@@ -1,26 +1,39 @@
 profile:
-  researcher: 'Your Name'
-  library_name: 'Your Research Library'
-  description: 'A calm, searchable research knowledge base.'
+  researcher: XiaoHang
+  library_name: XiaoHang 的阿尔茨海默病语音筛查研究库
+  description: 围绕语音与语言数字生物标志物、阿尔茨海默病早期筛查及模型外部验证的个人研究文献库。
 research_scope:
   primary:
-    - 'Your Primary Research Direction'
-  secondary: []
+    - 语音筛查阿尔茨海默
+  secondary:
+    - 语音与语言数字生物标志物
+    - 认知障碍早筛与跨队列泛化
 paper_selection:
-  recent_year_window: 3
-  priority: [quality, relevance]
-  relevance_levels: [High, Medium, Low]
+  recent_year_window: 5
+  priority:
+    - quality
+    - relevance
+  relevance_levels:
+    - High
+    - Medium
+    - Low
   ranking_systems: []
-  conferences: { prefer: [], allow: [] }
-  journals: { prefer: [], allow: [] }
-  preprints: { allowed: true, require_exact_source: true }
+  conferences:
+    prefer: []
+    allow: []
+  journals:
+    prefer: []
+    allow: []
+  preprints:
+    allowed: true
+    require_exact_source: true
 language:
-  explanation: 'zh-CN'
-  terminology: 'mixed-zh-en'
+  explanation: zh-CN
+  terminology: mixed-zh-en
 daily:
   papers_per_run: 1
-  timezone: 'Asia/Shanghai'
+  timezone: Asia/Shanghai
   scheduled_time: '08:00'
 editor:
-  owner_github_username: ''
+  owner_github_username: kangkang03jug
   api_origin: ''

@@ -1,0 +1,122 @@
+{
+  "ranking": {
+    "ccf": null,
+    "cas": null,
+    "jcr": null,
+    "ranking_year": null,
+    "ranking_source": null
+  },
+  "topics": [
+    "阿尔茨海默病",
+    "语音筛查",
+    "数字生物标志物",
+    "Alzheimer’s disease",
+    "speech-based screening",
+    "外部验证",
+    "ADNI4",
+    "泛化能力",
+    "cross-cohort validation"
+  ],
+  "relevance": "High",
+  "figures": [],
+  "owner_edited": false,
+  "id": "skirrow-2024-storyteller-adni4-generalizability",
+  "title": "Storyteller in ADNI4: Application of an early Alzheimer’s disease screening tool using brief, remote, and speech-based testing",
+  "authors": [
+    "Caroline Skirrow",
+    "Udeepa Meepegama",
+    "Jack Weston",
+    "Melanie J. Miller",
+    "Rachel L. Nosheny",
+    "Bruce Albala",
+    "Michael W. Weiner",
+    "Emil Fristed",
+    "Alzheimer’s Disease Neuroimaging Initiative"
+  ],
+  "year": 2024,
+  "publication_date": "2024-09-05",
+  "venue_or_source": "Alzheimer’s & Dementia 20(10): 7248–7262",
+  "venue_type": "Journal",
+  "identifiers": {
+    "doi": "10.1002/alz.14206",
+    "arxiv": null,
+    "openreview": null
+  },
+  "urls": {
+    "paper": "https://doi.org/10.1002/alz.14206",
+    "code": null
+  },
+  "reading_basis": "official_html",
+  "quick_read": {
+    "tldr": "研究将 AMYPRED 开发的故事回忆模型放到 ADNI4 临床和远程队列做样本外检验；存在泛化信号，但阈值会漂移，且远程队列诊断主要为自我报告。",
+    "problem_and_motivation": "语音筛查工作常依赖小样本和内部交叉验证；作者检验模型能否跨研究队列、设备及人群泛化。",
+    "core_method": "在 AMYPRED（N=101）分析故事回忆文本相似度、词汇、时间和声学特征，再外测 ADNI4 临床队列（N=57）与远程队列（N=426）。",
+    "key_results": "摘要报告最佳文本相似度/词汇模型跨队列 AUC 0.71–0.84。G-match AUC 为 AMYPRED 0.82、ADNI4 临床 0.73、远程 0.75；相近敏感度下阈值存在队列偏移。",
+    "why_it_matters": "样本外泛化是筛查研究关键，但不能照搬阈值；英文研究结果也不能直接外推到中文或个人诊断。"
+  },
+  "detail": {
+    "motivation": "要用于大规模预筛，语音模型必须在来源队列之外、不同招募方式/设备/人口特征中检验。作者利用 ADNI4 临床及远程样本评估 Storyteller 模型的样本外表现。",
+    "contributions": [
+      {
+        "contribution": "用 AMYPRED 开发/评估早期 AD 语音模型，并在 ADNI4 临床与远程队列做样本外验证。",
+        "source": "Abstract; Background §§1–2"
+      },
+      {
+        "contribution": "比较文本相似度、词汇、时间和声学特征，并报告 G-match 分数阈值在队列间的变化。",
+        "source": "Abstract; Results §3.6; Discussion §4.1"
+      }
+    ],
+    "research_questions": [
+      {
+        "type": "inferred",
+        "question": "在 AMYPRED 开发的自动故事回忆模型能否泛化到 ADNI4 临床与远程队列及更广设备/人群？",
+        "how": "提取文本相似度、词汇、时间和声学特征，在 AMYPRED 建模并应用到 ADNI4 样本外测试，比较 AUC、敏感度及相应阈值。",
+        "answer": "G-match AUC：AMYPRED 0.82、ADNI4 临床 0.73、ADNI4 远程 0.75；跨队列保留一定区分能力，但绝对分数/决策阈值发生变化。",
+        "meaning": "支持继续开展外部验证；新目标人群需要阈值再评估，且自报标签与临床小样本限制证据强度。",
+      "source": "Introduction / Background §1 (study aim); Abstract; Results §3.6"
+      }
+    ],
+    "research_questions_empty_reason": null,
+    "research_questions_empty_source": null,
+    "method": "三组英文故事回忆样本：AMYPRED（N=101，其中 46 例 MCI，用于建模分析）、ADNI4 临床队列（N=57，其中 13 例 MCI）和 ADNI4 远程数字队列（N=426，其中 58 人自报 MCI、轻度 AD 或痴呆）。提取文本相似度（G-match）、词汇、时间和声学特征；在临床评估或自报标签上比较表现。ADNI4 队列超过三分之一来自历史上代表不足的群体。",
+    "experiments_and_key_findings": "摘要报告文本相似度/词汇模型的跨队列 AUC 为 0.71–0.84。G-match 对临床或自报认知状态的 AUC：AMYPRED 0.82（95% CI 0.74–0.89）、ADNI4 临床 0.73（0.58–0.86）、远程 0.75（0.67–0.82）。约 0.70 敏感度对应阈值在 AMYPRED 约 66.9、ADNI4 临床/远程约 57.7/57.8；提示分数分布和阈值并非直接可迁移。",
+    "limitations": {
+      "author_reported": [
+        "ADNI4 临床诊断子样本较小；远程队列较大但依赖自报诊断；Discussion §4.6。",
+        "ADNI4 转写错误率尚未充分评估，作者要求研究不同人口群体的转写公平性；Discussion §4.6。",
+        "远程无监督录音使用不同设备/麦克风，可能影响音频质量；Discussion §4.6。",
+        "作者指出 G-match 绝对分数及目标敏感度阈值存在队列差异；Discussion §4.1。"
+      ],
+      "ai_analysis": [
+        "三组均使用英语测试材料；对普通话、方言、双语人群及不同教育文化背景没有直接证据。",
+        "远程自报诊断不如临床诊断稳健，临床队列仅 57 人；区分度不等于确定诊断效能。",
+        "目标人群患病率会改变 PPV/NPV；即使 AUC 稳定，部署阈值仍需预先校准并独立验证。",
+        "多位作者披露与 Storyteller 商业开发方 Novoic 的雇佣/持股关系，应结合样本外结果及预设验证设计审视。"
+      ]
+    },
+    "relation_to_research": "承接早期 Aβ/认知筛查工作，本研究直接检验模型离开来源队列后是否仍有信号。它提示研究设计应把独立测试集、阈值稳定性、标签质量和跨语言公平性纳入主问题，而不只追求内部 AUC。",
+    "what_can_be_done_next": "在中文人群开展前瞻多中心外部验证；预先冻结特征、模型与阈值，按中心/语言/方言/年龄/教育报告 AUC、敏感度、特异度、校准和 PPV/NPV。将远程自报标签与标准化临床评估及生物标志物子样本核对，并审计麦克风、转写误差与退出偏倚。"
+  },
+  "original_abstract": null,
+  "bibtex": "@article{skirrow2024storyteller,\n  title={Storyteller in ADNI4: Application of an early Alzheimer's disease screening tool using brief, remote, and speech-based testing},\n  author={Skirrow, Caroline and Meepegama, Udeepa and Weston, Jack and Miller, Melanie J. and Nosheny, Rachel L. and Albala, Bruce and Weiner, Michael W. and Fristed, Emil},\n  journal={Alzheimer's & Dementia}, volume={20}, number={10}, pages={7248--7262}, year={2024},\n  doi={10.1002/alz.14206}\n}",
+  "evidence": [
+    {
+      "claim": "研究目标、三组队列、特征类型和总体样本外表现。",
+      "locator": "Abstract; Background §§1–2",
+      "url": "https://doi.org/10.1002/alz.14206"
+    },
+    {
+      "claim": "G-match 在 AMYPRED 与两组 ADNI4 队列的 AUC。",
+      "locator": "Results §3.6",
+      "url": "https://doi.org/10.1002/alz.14206"
+    },
+    {
+      "claim": "队列间阈值偏移以及标签/录音条件限制。",
+      "locator": "Discussion §§4.1, 4.6",
+      "url": "https://doi.org/10.1002/alz.14206"
+    }
+  ],
+  "generated_by": "Curated from publisher full text and PubMed metadata; Chinese evidence-linked summary",
+  "generated_at": "2026-09-16T09:00:00+08:00",
+  "updated_at": "2026-09-16T09:00:00+08:00"
+}

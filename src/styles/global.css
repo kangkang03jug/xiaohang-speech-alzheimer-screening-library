@@ -126,10 +126,18 @@ main {
   margin: 0 auto;
   border-top: 1px solid var(--line);
   padding: 18px 24px 30px;
-  display: flex;
-  justify-content: space-between;
   color: var(--muted);
   font-size: 0.78rem;
+}
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.research-disclaimer {
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
 }
 .eyebrow {
   text-transform: uppercase;

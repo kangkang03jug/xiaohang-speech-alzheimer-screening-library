@@ -9,10 +9,15 @@ export const zhCN = {
   },
   theme: { toggle: '切换深色模式' },
   locale: { toEnglish: '切换为 English', toChinese: '切换为中文' },
-  footer: { content: '结构化数据存储在 Git · 内容优先', generated: '由 ChatGPT/Codex 生成' },
+  footer: {
+    content: '结构化数据存储在 Git · 内容优先',
+    generated: '由 ChatGPT/Codex 生成',
+    researchDisclaimer:
+      '学术文献整理与研究证据摘要，不提供个体诊断或医疗建议；研究性筛查模型不能替代临床评估。',
+  },
   home: {
     eyebrow: 'Research Library ·',
-    lede: '一个持续更新的个人研究知识库，用于整理论文、记录阅读进展，并沉淀长期研究笔记与思考。',
+    lede: '聚焦阿尔茨海默病语音筛查，围绕语音与语言数字生物标志物、早期认知筛查和跨队列外部验证，整理论文并沉淀研究思考。',
     today: '今日论文',
     read: '阅读论文 →',
     noPapers: '还没有论文。',

@@ -36,7 +36,7 @@ const nav = [
       </div>
     </header>
     <main><slot /></main>
-    <footer class="site-footer"><span data-i18n="footer.content">结构化数据存储在 Git · 内容优先</span><span data-i18n="footer.generated">由 ChatGPT/Codex 生成</span></footer>
+    <footer class="site-footer"><div class="footer-meta"><span data-i18n="footer.content">结构化数据存储在 Git · 内容优先</span><span data-i18n="footer.generated">由 ChatGPT/Codex 生成</span></div><p class="research-disclaimer" data-i18n="footer.researchDisclaimer">学术文献整理与研究证据摘要，不提供个体诊断或医疗建议；研究性筛查模型不能替代临床评估。</p></footer>
     <script is:inline>
       const key = 'research-library-theme';
       const saved = localStorage.getItem(key);

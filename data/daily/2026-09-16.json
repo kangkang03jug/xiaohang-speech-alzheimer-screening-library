@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-16",
+  "recommendations": [
+    {
+      "paper_id": "fristed-2022-speech-ai-alzheimer-amyloid",
+      "primary": true,
+      "run_type": "manual"
+    },
+    {
+      "paper_id": "skirrow-2024-storyteller-adni4-generalizability",
+      "primary": false,
+      "run_type": "manual"
+    }
+  ]
+}
