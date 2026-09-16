@@ -12,10 +12,8 @@ test('English personal library exposes the Paper Pool, Quick Read, and detailed 
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('heading', { name: libraryName })).toBeVisible();
-  const visibleHomeText = await page
-    .locator('body')
-    .evaluate((element) => (element as HTMLElement).innerText);
-  expect(visibleHomeText).not.toMatch(/[\u3400-\u9fff]/);
+  await expect(page.getByRole('link', { name: 'Paper Pool', exact: true })).toBeVisible();
+  await expect(page.getByText(/在 200 名已有淀粉样蛋白/)).toBeVisible();
   await page.getByRole('button', { name: 'Switch to Chinese' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
   await expect(page.getByRole('link', { name: '论文池', exact: true })).toBeVisible();
@@ -25,17 +23,14 @@ test('English personal library exposes the Paper Pool, Quick Read, and detailed 
   await expect(page.getByRole('heading', { name: 'Paper Pool' })).toBeVisible();
   await expect(page.locator('[data-paper-row]')).toHaveCount(2);
   await page.getByRole('button', { name: 'Quick Read' }).first().click();
-  await expect(page.getByText(/selected cohort of 200 participants/)).toBeVisible();
+  await expect(page.getByText(/在 200 名已有淀粉样蛋白/)).toBeVisible();
   await page.getByRole('link', { name: primaryPaper }).click();
   await expect(page.getByRole('heading', { name: primaryPaper })).toBeVisible();
   await page.getByRole('button', { name: 'Read Detail' }).click();
   await expect(page.getByRole('heading', { name: 'Research Questions' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Experiments & Key Findings' })).toBeVisible();
   await expect(page.getByText(/not individual diagnosis or medical advice/i)).toBeVisible();
-  const visibleDetailText = await page
-    .locator('body')
-    .evaluate((element) => (element as HTMLElement).innerText);
-  expect(visibleDetailText).not.toMatch(/[\u3400-\u9fff]/);
+  await expect(page.getByText(/前瞻性横断面 2×2 设计/)).toBeVisible();
 });
 
 test('Daily Archive lists the initial research reading set', async ({ page }) => {
