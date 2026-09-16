@@ -30,7 +30,7 @@ test('English personal library exposes the Paper Pool, Quick Read, and detailed 
   await expect(page.getByRole('heading', { name: 'Research Questions' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Experiments & Key Findings' })).toBeVisible();
   await expect(page.getByText(/not individual diagnosis or medical advice/i)).toBeVisible();
-  await expect(page.getByText(/前瞻性横断面 2×2 设计/)).toBeVisible();
+  await expect(page.locator('#method p')).toContainText('前瞻性横断面 2×2 设计');
 });
 
 test('Daily Archive lists the initial research reading set', async ({ page }) => {
