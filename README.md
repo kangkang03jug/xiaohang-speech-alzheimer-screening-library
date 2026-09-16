@@ -1,10 +1,10 @@
-# XiaoHang 的阿尔茨海默病语音筛查研究库
+# XiaoHang’s Alzheimer’s Speech Screening Research Library
 
-这是 XiaoHang 的独立个人 Research Library，基于 [research-library-template](https://github.com/kangkang03jug/research-library-template) 初始化，并通过 GitHub Pages 发布。
+This is XiaoHang’s independent Research Library, initialized from [research-library-template](https://github.com/kangkang03jug/research-library-template) and published with GitHub Pages.
 
-研究主线：语音筛查阿尔茨海默病；关注语音与语言数字生物标志物、早期认知筛查、外部验证和跨队列泛化。站点保留模板的 Paper Pool、Daily Archive、Quick Read、详细论文报告、检索/筛选、深色模式及中英文切换能力。学术文献整理不提供个体诊断或医疗建议；研究性筛查模型不能替代临床评估。
+Research focus: speech-based Alzheimer’s disease screening, speech and language digital biomarkers, early cognitive screening, external validation, and cross-cohort generalization. The site retains Paper Pool, Daily Archive, Quick Read, detailed paper reports, search and filters, dark mode, and a bilingual language toggle. It is for academic literature review—not individual diagnosis or medical advice; research screening models do not replace clinical assessment.
 
-网站：[XiaoHang Research Library](https://kangkang03jug.github.io/xiaohang-speech-alzheimer-screening-library/)
+Website: [XiaoHang Research Library](https://kangkang03jug.github.io/xiaohang-speech-alzheimer-screening-library/)
 
 This is a reusable, static-first framework for a personal research library. It turns structured Git data into a fast public website: **Paper Pool** is the searchable collection, **Today’s Paper** is the daily recommendation, **Detail View** is a 5–10 minute reading brief, **Deep Read** is your manually marked reading progress, **Favorites** is your shortlist, and **My Notes** are durable researcher-owned Markdown notes. The template is domain-neutral: research direction, topics, language, and ranking preferences come from `config/research-profile.yaml`.
 

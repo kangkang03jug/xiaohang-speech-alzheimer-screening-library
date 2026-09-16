@@ -5,7 +5,7 @@ export const translations = { 'zh-CN': zhCN, en } as const;
 export type Locale = keyof typeof translations;
 
 export function normalizeLocale(value: string | null | undefined): Locale {
-  return value === 'en' ? 'en' : 'zh-CN';
+  return value === 'zh-CN' ? 'zh-CN' : 'en';
 }
 
 export function message(locale: Locale, key: string) {

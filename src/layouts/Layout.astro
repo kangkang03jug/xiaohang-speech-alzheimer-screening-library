@@ -4,15 +4,15 @@ import { withBase } from '../lib/url';
 const { title, profile } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const nav = [
-  ['nav.home', '首页', withBase('/', base)],
-  ['nav.paperPool', '论文池', withBase('/paper-pool/', base)],
-  ['nav.deepRead', '精读', withBase('/deep-read/', base)],
-  ['nav.dailyArchive', '每日归档', withBase('/daily-archive/', base)],
-  ['nav.favorites', '收藏', withBase('/favorites/', base)],
+  ['nav.home', 'Home', withBase('/', base)],
+  ['nav.paperPool', 'Paper Pool', withBase('/paper-pool/', base)],
+  ['nav.deepRead', 'Deep Read', withBase('/deep-read/', base)],
+  ['nav.dailyArchive', 'Daily Archive', withBase('/daily-archive/', base)],
+  ['nav.favorites', 'Favorites', withBase('/favorites/', base)],
 ];
 ---
 <!doctype html>
-<html lang="zh-CN" data-locale="zh-CN">
+<html lang="en" data-locale="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -20,7 +20,7 @@ const nav = [
     <title>{title ? `${title} · ` : ''}{profile?.profile?.library_name || 'Research Library'}</title>
     <script is:inline>
       try {
-        const locale = localStorage.getItem('research-library-locale') === 'en' ? 'en' : 'zh-CN';
+        const locale = localStorage.getItem('research-library-locale') === 'zh-CN' ? 'zh-CN' : 'en';
         document.documentElement.dataset.locale = locale;
         document.documentElement.lang = locale;
       } catch {}
@@ -28,11 +28,11 @@ const nav = [
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href={withBase('/', base)} aria-label="首页"><span class="brand-mark">R/</span><span>{profile?.profile?.library_name || 'Research Library'}</span></a>
-      <nav aria-label="主导航">{nav.map(([key, label, href]) => <a href={href} data-i18n={key}>{label}</a>)}</nav>
+      <a class="brand" href={withBase('/', base)} aria-label="Home"><span class="brand-mark">R/</span><span>{profile?.profile?.library_name || 'Research Library'}</span></a>
+      <nav aria-label="Primary navigation">{nav.map(([key, label, href]) => <a href={href} data-i18n={key}>{label}</a>)}</nav>
       <div class="header-actions">
-        <button class="locale-toggle" type="button" data-locale-toggle aria-label="切换为 English">中 / EN</button>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="切换深色模式">◐</button>
+        <button class="locale-toggle" type="button" data-locale-toggle aria-label="Switch to Chinese">EN / ZH</button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">◐</button>
       </div>
     </header>
     <main><slot /></main>
