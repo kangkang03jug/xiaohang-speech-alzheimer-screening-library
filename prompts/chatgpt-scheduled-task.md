@@ -12,3 +12,7 @@ Before changing the repository, confirm that this task has authenticated GitHub 
 当 `language.explanation = zh-CN` 时，所有 AI 生成的 Quick Read、Detail、Research Questions、Contributions、Limitations、Relation 和后续研究建议都必须以自然、简单、直观的中文为主。普通技术概念优先翻成中文；只保留方法名、模型名、数据集、指标、缩写和其他确实需要保留的专有名词。英文术语第一次出现时可写成“中文（英文）”，后文尽量只用中文，避免频繁中英文混写。
 
 先解释“是什么意思”，再写必要的专业术语；多用短句，少用长句和术语堆叠。TL;DR 只写论文问题、核心方法、最重要结论和研究启发；“关键结果”只保留最重要的 1–3 个结论或代表性数字；“为什么重要 / AI 分析”必须写成容易理解、直接来自本文的研究启发，不能写成英文术语拼接或通用建议。生成后逐字段删除不必要的英文、重复术语、过长句子和没有解释的缩写；不得改写标题、作者、摘要、BibTeX、标识符、链接或 `original_question`。
+
+Detail 深度规范：Quick Read 仍是简洁的 1–3 分钟定位；Detail 必须是基于正文的充分阅读报告，不要把 concise 作为所有 Detail 字段的统一限制。对 full_text / official_html，分段展开 Motivation、Contributions、Research Questions、Method、Experiments & Key Findings、Limitations、Relation to Research 和后续方向，覆盖背景与缺陷、输入输出和模块流程、数据集/基线/指标、主要结果/消融/异常、具体局限及与 Research Profile 的关系，并保留 Section/Page/Table/Figure 定位。
+
+detail.what_can_be_done_next 必须是 3–6 个直接基于本文的研究方向对象数组。每项包含 title、rationale、concrete_plan、validation、expected_value，可选 source；分别写清方向来源、实际步骤、验证实验和预期价值。不得给出通用 AI 建议。旧字符串可兼容读取，但新生成和编辑的记录必须使用结构化数组。

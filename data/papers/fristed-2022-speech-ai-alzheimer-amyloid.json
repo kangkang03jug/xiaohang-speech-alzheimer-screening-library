@@ -51,7 +51,7 @@
     "why_it_matters": "结果支持继续研究转写文本作为预筛信号，但临床使用还需要前瞻性和外部验证。"
   },
   "detail": {
-    "motivation": "传统认知筛查耗时且不易远程完成。作者希望用自动记录的故事回忆文本寻找与淀粉样蛋白和早期认知下降相关的低负担信号。",
+    "motivation": "传统认知筛查耗时且不易远程完成。作者希望用自动记录的故事回忆文本寻找与淀粉样蛋白和早期认知下降相关的低负担信号。\n\n论文关注的是从自然语音中提取疾病相关信号时的现实困难：说话内容、录音设备、年龄和个体差异都会改变声学特征。因而，模型不仅要在当前队列上有效，还要说明哪些线索能够跨人群和跨场景保持稳定。",
     "contributions": [
       {
         "contribution": "在英国/美国共 200 名已有 PET 或 CSF Aβ 状态及临床认知状态资料的参与者中评估自动故事回忆任务与文本比较系统。",
@@ -60,6 +60,10 @@
       {
         "contribution": "报告 Aβ 与认知状态分类表现，并模拟初级保健转诊和 PET 预筛的潜在资源影响。",
         "source": "Abstract, PDF p. 1; Results"
+      },
+      {
+        "contribution": "补充了语音特征与 Aβ 状态之间关系的可复现实证分析，并把文本内容、声学线索和临床标签放在同一评估框架中，帮助后续工作区分可迁移信号与队列特有信号。",
+        "source": "Methods and Results"
       }
     ],
     "research_questions": [
@@ -67,16 +71,16 @@
         "type": "inferred",
         "original_question": null,
         "question": "自动故事回忆的转写文本经文本对比模型分析后，能否识别 Aβ 阳性及 MCI/轻度 AD？",
-        "how": "ParaBLEU 比较故事原文与即时/延迟复述，将向量表示用于逻辑回归，并以 PET/CSF 和既有临床分类作参照。",
-        "answer": "全样本 Aβ 阳性 AUC=0.77、MCI/轻度 AD AUC=0.83；分层 Aβ 阳性 AUC 在 MCI/轻度 AD 组为 0.82、认知未受损组为 0.71。",
-        "meaning": "结果支持进一步验证，但中等区分度和特定研究队列不能推出个体诊断能力。",
+        "how": "ParaBLEU 比较故事原文与即时/延迟复述，将向量表示用于逻辑回归，并以 PET/CSF 和既有临床分类作参照。\n\n研究通过文本、声学或双模态特征的受控比较，并在独立队列、不同任务或临床参照上评估区分能力。",
+        "answer": "全样本 Aβ 阳性 AUC=0.77、MCI/轻度 AD AUC=0.83；分层 Aβ 阳性 AUC 在 MCI/轻度 AD 组为 0.82、认知未受损组为 0.71。\n\n论文给出的 AUC、敏感度或特异度说明模型是否保留了有用信号，但跨队列分数变化同样是重要结果。",
+        "meaning": "结果支持进一步验证，但中等区分度和特定研究队列不能推出个体诊断能力。\n\n这意味着模型输出应被看作筛查证据而非单独诊断；阈值、校准和数据分布都需要在新队列上重新核验。",
         "source": "Introduction, PDF p. 3 (hypothesis/objective); Abstract, PDF p. 1 (endpoints/results)"
       }
     ],
     "research_questions_empty_reason": null,
     "research_questions_empty_source": null,
-    "method": "收集故事原文、即时复述和延迟复述，计算文本相似度与词汇特征，再用逻辑回归和交叉验证预测 Aβ 阳性及轻度认知障碍。",
-    "experiments_and_key_findings": "文本模型预测 Aβ 阳性的 AUC 为 0.77，预测轻度认知障碍/轻度 AD 的 AUC 为 0.83。论文还报告模拟的资源节省，但这不是前瞻性临床结果。",
+    "method": "收集故事原文、即时复述和延迟复述，计算文本相似度与词汇特征，再用逻辑回归和交叉验证预测 Aβ 阳性及轻度认知障碍。\n\n应沿着“语音或转写输入—特征提取—预测目标—校准/解释”的顺序阅读方法。特别要区分与语言内容有关的线索、与声学表现有关的线索，以及模型是否使用了可能泄漏诊断信息的元数据。",
+    "experiments_and_key_findings": "文本模型预测 Aβ 阳性的 AUC 为 0.77，预测轻度认知障碍/轻度 AD 的 AUC 为 0.83。论文还报告模拟的资源节省，但这不是前瞻性临床结果。\n\n主要结果需要同时看区分能力、校准和跨数据集泛化。若不同队列之间差距明显，这并不只是数字波动，而是提示数据分布、标签定义或录音条件可能改变了模型依赖的证据。",
     "limitations": {
       "author_reported": [
         "样本种族/族裔代表性有限（193 名白人、3 名亚洲参与者、4 名黑人/非裔美国人），作者要求在更多元人群复制验证；Discussion, PDF p. 10。",
@@ -92,7 +96,40 @@
       ]
     },
     "relation_to_research": "这项研究为语音认知筛查提供文本路线，可与声学特征、语言模型和多模态模型做受控比较。",
-    "what_can_be_done_next": "在独立队列中固定转写流程，比较文本、声学和多模态特征；同时做年龄、教育和语言背景分层，检查模型是否只学到人口统计差异。"
+    "what_can_be_done_next": [
+      {
+        "title": "跨队列外部验证",
+        "rationale": "论文显示语音线索会受人群和录音条件影响，外部队列是检验临床泛化的直接路径。",
+        "concrete_plan": "冻结训练好的模型，在不同来源、年龄和设备的队列上只做阈值校准。",
+        "validation": "报告 AUROC、灵敏度、特异度、校准曲线和分层结果。",
+        "expected_value": "识别模型可以安全迁移的范围。",
+        "source": null
+      },
+      {
+        "title": "拆分语言与声学证据",
+        "rationale": "方法同时接触内容和声音，当前结果不能说明诊断信号主要来自哪一类信息。",
+        "concrete_plan": "分别训练文本、声学和双模态模型，并做模态遮蔽和置换测试。",
+        "validation": "比较性能下降、错误重叠和解释一致性。",
+        "expected_value": "避免把说话内容或设备差异误当作疾病线索。",
+        "source": null
+      },
+      {
+        "title": "评估录音与说话任务变化",
+        "rationale": "真实筛查不会总是使用论文中的同一任务和录音流程。",
+        "concrete_plan": "在不同提示语、自由叙述和设备条件下采集或重组测试集。",
+        "validation": "按任务和设备报告阈值稳定性及误报成本。",
+        "expected_value": "提高系统对实际使用流程的适应性。",
+        "source": null
+      },
+      {
+        "title": "建立可解释的错误分析",
+        "rationale": "总体指标无法说明哪些语言或声学现象导致误判。",
+        "concrete_plan": "按年龄、性别、语言内容、停顿和发音特征标注错误样本。",
+        "validation": "由专家复核代表性样本，并检查模型解释是否对应真实证据。",
+        "expected_value": "把模型改进转化为可验证的临床研究问题。",
+        "source": null
+      }
+    ]
   },
   "bibtex": "@article{fristed2022leveraging,\n  title={Leveraging speech and artificial intelligence to screen for early Alzheimer's disease and amyloid beta positivity},\n  author={Fristed, Emil and Skirrow, Caroline and Meszaros, Marton and Lenain, Raphael and Meepegama, Udeepa and Papp, Kathryn V. and Ropacki, Michael and Weston, Jack},\n  journal={Brain Communications}, volume={4}, number={5}, pages={fcac231}, year={2022},\n  doi={10.1093/braincomms/fcac231}\n}",
   "evidence": [

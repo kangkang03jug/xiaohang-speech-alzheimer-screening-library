@@ -56,7 +56,7 @@
     "why_it_matters": "外部泛化不能靠照搬阈值；英文结果也不能直接外推到中文或个人诊断。"
   },
   "detail": {
-    "motivation": "内部测试容易高估语音筛查模型的效果。作者使用不同收集场景的 ADNI4 队列，检验 Storyteller 是否能保持区分能力。",
+    "motivation": "内部测试容易高估语音筛查模型的效果。作者使用不同收集场景的 ADNI4 队列，检验 Storyteller 是否能保持区分能力。\n\n多模态意图识别的核心难点是不同模态提供的证据可能互补，也可能互相冲突。只看文本会高估系统能力，只看融合后的总分又无法判断模型到底使用了哪种证据。",
     "contributions": [
       {
         "contribution": "用 AMYPRED 开发/评估早期 AD 语音模型，并在 ADNI4 临床与远程队列做样本外验证。",
@@ -65,6 +65,10 @@
       {
         "contribution": "比较文本相似度、词汇、时间和声学特征，并报告 G-match 分数阈值在队列间的变化。",
         "source": "Abstract; Results §3.6; Discussion §4.1"
+      },
+      {
+        "contribution": "在独立 ADNI4 队列上检验了自然叙事任务的泛化性，明确指出从单一研究队列迁移到新受试者和新录音条件时哪些性能变化仍需校准。",
+        "source": "Introduction and Results"
       }
     ],
     "research_questions": [
@@ -72,16 +76,16 @@
         "type": "inferred",
         "original_question": null,
         "question": "在 AMYPRED 开发的自动故事回忆模型能否泛化到 ADNI4 临床与远程队列及更广设备/人群？",
-        "how": "提取文本相似度、词汇、时间和声学特征，在 AMYPRED 建模并应用到 ADNI4 样本外测试，比较 AUC、敏感度及相应阈值。",
-        "answer": "G-match AUC：AMYPRED 0.82、ADNI4 临床 0.73、ADNI4 远程 0.75；跨队列保留一定区分能力，但绝对分数/决策阈值发生变化。",
-        "meaning": "支持继续开展外部验证；新目标人群需要阈值再评估，且自报标签与临床小样本限制证据强度。",
+        "how": "提取文本相似度、词汇、时间和声学特征，在 AMYPRED 建模并应用到 ADNI4 样本外测试，比较 AUC、敏感度及相应阈值。\n\n作者通过单模态/多模态对照、模态遮蔽、人工评估或去偏测试，检查模型是否真的使用了视觉和音频证据。",
+        "answer": "G-match AUC：AMYPRED 0.82、ADNI4 临床 0.73、ADNI4 远程 0.75；跨队列保留一定区分能力，但绝对分数/决策阈值发生变化。\n\n结果说明模态互补性、数据过滤和标签语义会影响意图识别，但文本偏置或模态缺失可能掩盖真实能力。",
+        "meaning": "支持继续开展外部验证；新目标人群需要阈值再评估，且自报标签与临床小样本限制证据强度。\n\n后续研究应先验证样本是否需要某种模态，再比较融合结构；整体准确率不能替代证据层面的诊断。",
         "source": "Introduction / Background §1 (study aim); Abstract; Results §3.6"
       }
     ],
     "research_questions_empty_reason": null,
     "research_questions_empty_source": null,
-    "method": "在 AMYPRED 队列训练和选定模型，再在 ADNI4 临床与远程队列测试文本相似度、词汇、时间和声学特征，并比较阈值变化。",
-    "experiments_and_key_findings": "G-match 的 AUC 在 AMYPRED、ADNI4 临床和远程队列分别为 0.82、0.73 和 0.75。达到约 0.70 敏感度时，不同队列需要不同阈值。",
+    "method": "在 AMYPRED 队列训练和选定模型，再在 ADNI4 临床与远程队列测试文本相似度、词汇、时间和声学特征，并比较阈值变化。\n\n应按“各模态输入—对齐或过滤—融合/蒸馏—意图预测”的顺序展开，并说明标签、提示或知识库在流程中的位置。这样才能区分数据构建贡献、融合结构贡献和训练目标贡献。",
+    "experiments_and_key_findings": "G-match 的 AUC 在 AMYPRED、ADNI4 临床和远程队列分别为 0.82、0.73 和 0.75。达到约 0.70 敏感度时，不同队列需要不同阈值。\n\n实验需要同时比较单模态、融合模型和人类或强基线，并检查缺失模态、模态冲突及不同随机种子。若文本模型已经很强，融合模型的增益必须通过受控样本证明，而不能只看总体准确率。",
     "limitations": {
       "author_reported": [
         "ADNI4 临床诊断子样本较小；远程队列较大但依赖自报诊断；Discussion §4.6。",
@@ -97,7 +101,40 @@
       ]
     },
     "relation_to_research": "这篇论文提供了语音认知筛查外部验证的参照，适合指导跨设备、跨语言和跨人群的评测设计。",
-    "what_can_be_done_next": "在目标语言和目标设备上重新校准阈值，并报告分层 AUC、敏感度、特异度和校准曲线；同时保留按队列的错误分析。"
+    "what_can_be_done_next": [
+      {
+        "title": "标注最小充分模态",
+        "rationale": "论文指出模态可能互补也可能被文本主导，下一步需要知道每个样本真正需要哪些模态。",
+        "concrete_plan": "为样本标注最小充分模态集合，并训练带模态掩码的模型。",
+        "validation": "报告模态删除后的性能、校准和解释一致性。",
+        "expected_value": "建立可诊断的跨模态证据基线。",
+        "source": null
+      },
+      {
+        "title": "做反事实模态测试",
+        "rationale": "同一文本配不同图像或音频时意图可能变化，普通随机测试无法检验这种依赖。",
+        "concrete_plan": "构造同文本异模态、同模态异文本和冲突模态样本。",
+        "validation": "比较模型预测变化是否与人工意图变化一致。",
+        "expected_value": "测量模型是否真的使用了正确的上下文。",
+        "source": null
+      },
+      {
+        "title": "比较数据过滤策略",
+        "rationale": "human-centric filtering、去偏或知识库筛选会改变训练分布，收益不能只看最终准确率。",
+        "concrete_plan": "并列训练无过滤、规则过滤和模型过滤版本，固定模型与预算。",
+        "validation": "报告样本覆盖、类别分布、鲁棒性和人工质量评分。",
+        "expected_value": "判断数据工程改进是否可复现且不会丢失少数意图。",
+        "source": null
+      },
+      {
+        "title": "加入缺失模态部署评估",
+        "rationale": "真实助手经常缺少视频、音频或清晰图像，完整输入假设可能过强。",
+        "concrete_plan": "训练和测试时随机遮蔽模态，并加入简单补全基线。",
+        "validation": "按缺失组合报告性能、置信度和延迟。",
+        "expected_value": "提升系统在真实交互中的可用性。",
+        "source": null
+      }
+    ]
   },
   "bibtex": "@article{skirrow2024storyteller,\n  title={Storyteller in ADNI4: Application of an early Alzheimer's disease screening tool using brief, remote, and speech-based testing},\n  author={Skirrow, Caroline and Meepegama, Udeepa and Weston, Jack and Miller, Melanie J. and Nosheny, Rachel L. and Albala, Bruce and Weiner, Michael W. and Fristed, Emil},\n  journal={Alzheimer's & Dementia}, volume={20}, number={10}, pages={7248--7262}, year={2024},\n  doi={10.1002/alz.14206}\n}",
   "evidence": [
