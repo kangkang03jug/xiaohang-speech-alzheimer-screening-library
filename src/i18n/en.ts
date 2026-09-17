@@ -17,6 +17,7 @@ export const en = {
   },
   home: {
     eyebrow: 'Research Library ·',
+    libraryLabel: 'Research Library',
     lede: 'Focused on speech-based Alzheimer’s screening, speech and language biomarkers, early cognitive screening, and cross-cohort external validation.',
     today: 'Today’s Paper',
     read: 'Read paper →',

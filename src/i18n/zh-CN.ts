@@ -17,6 +17,7 @@ export const zhCN = {
   },
   home: {
     eyebrow: 'Research Library ·',
+    libraryLabel: 'Research Library',
     lede: '聚焦阿尔茨海默病语音筛查，围绕语音与语言数字生物标志物、早期认知筛查和跨队列外部验证，整理论文并沉淀研究思考。',
     today: '今日论文',
     read: '阅读论文 →',
