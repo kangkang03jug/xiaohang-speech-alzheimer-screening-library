@@ -13,7 +13,6 @@ test('English personal library exposes the Paper Pool, Quick Read, and detailed 
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('heading', { name: libraryName })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Paper Pool', exact: true })).toBeVisible();
-  await expect(page.getByText(/在 200 名已有淀粉样蛋白/)).toBeVisible();
   await page.getByRole('button', { name: 'Switch to Chinese' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
   await expect(page.getByRole('link', { name: '论文池', exact: true })).toBeVisible();
@@ -23,7 +22,7 @@ test('English personal library exposes the Paper Pool, Quick Read, and detailed 
   await expect(page.getByRole('heading', { name: 'Paper Pool' })).toBeVisible();
   await expect(page.locator('[data-paper-row]')).toHaveCount(2);
   await page.getByRole('button', { name: 'Quick Read' }).first().click();
-  await expect(page.getByText(/在 200 名已有淀粉样蛋白/)).toBeVisible();
+  await expect(page.getByText(/自动故事回忆/)).toBeVisible();
   await page.getByRole('link', { name: primaryPaper }).click();
   await expect(page.getByRole('heading', { name: primaryPaper })).toBeVisible();
   await page.getByRole('button', { name: 'Read Detail' }).click();

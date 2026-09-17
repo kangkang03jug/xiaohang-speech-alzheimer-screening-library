@@ -44,14 +44,14 @@
   ],
   "reading_basis": "full_text",
   "quick_read": {
-    "tldr": "在 200 名已有淀粉样蛋白（Aβ）与临床状态参照信息的参与者中，自动故事回忆任务结合文本对比模型，对 Aβ 阳性及 MCI/轻度 AD 展示研究性区分能力。关键限定：本文分析的是转写文本，不是原始声学特征。",
-    "problem_and_motivation": "作者探索低负担、可远程执行的故事回忆任务能否辅助识别早期认知受损或 Aβ 阳性。",
-    "core_method": "立即及延迟复述标准故事；ParaBLEU 比较原文与复述文本，向逻辑回归提供向量特征，以 tournament leave-pair-out 交叉验证评估，并模拟潜在转诊/PET 资源影响。",
-    "key_results": "全样本 Aβ 阳性 AUC=0.77，MCI/轻度 AD AUC=0.83；分层 Aβ 预测 AUC 为认知受损组 0.82、认知未受损组 0.71。资源影响来自模拟，不是前瞻性临床效果。",
-    "why_it_matters": "支持继续研究故事回忆文本作为预筛信号，但需要更大、更多元目标人群的外部验证；研究模型不能诊断个人。"
+    "tldr": "论文用自动故事回忆的转写文本预测 Aβ 阳性和轻度认知障碍，重点研究文本而不是原始声学。",
+    "problem_and_motivation": "作者探索一种低负担、可远程完成的故事回忆任务，看看转写文本能否辅助早期认知筛查。",
+    "core_method": "比较故事原文与即时、延迟复述文本的相似度，用这些文本特征训练逻辑回归并交叉验证。",
+    "key_results": "Aβ 阳性 AUC 为 0.77，轻度认知障碍或轻度 AD AUC 为 0.83；这些结果不是个人诊断依据。",
+    "why_it_matters": "结果支持继续研究转写文本作为预筛信号，但临床使用还需要前瞻性和外部验证。"
   },
   "detail": {
-    "motivation": "常规认知筛查难以覆盖所有早期风险人群。作者假设自动故事回忆任务结合文本对比模型可能捕捉细微回忆/语言差异，用于认知受损及 Aβ 阳性的非侵入式预筛。",
+    "motivation": "传统认知筛查耗时且不易远程完成。作者希望用自动记录的故事回忆文本寻找与淀粉样蛋白和早期认知下降相关的低负担信号。",
     "contributions": [
       {
         "contribution": "在英国/美国共 200 名已有 PET 或 CSF Aβ 状态及临床认知状态资料的参与者中评估自动故事回忆任务与文本比较系统。",
@@ -75,8 +75,8 @@
     ],
     "research_questions_empty_reason": null,
     "research_questions_empty_source": null,
-    "method": "前瞻性横断面 2×2 设计，合并英国与美国研究数据。200 人（54–85 岁；97 名 Aβ 阳性、103 名阴性；94 名认知未受损、106 名 MCI/轻度 AD）完成标准化自动故事回忆的即时与短延迟复述。ParaBLEU 比较源文本与转写复述，逻辑回归以 tournament leave-pair-out 交叉验证预测 Aβ/临床状态。本文输入为文本/转写结果，未评估原始音频的声学或韵律特征。",
-    "experiments_and_key_findings": "Aβ 阳性全样本 AUC=0.77；MCI/轻度 AD AUC=0.83。分层 Aβ 预测：MCI/轻度 AD 组 0.82，认知未受损组 0.71。模拟估计 MCI 场景检出增加 8.5%、误报减少 59.1%；Aβ 阳性 PET 预筛估计可减少约 35.3%（MCI）和 35.5%（认知未受损）的扫描需求。模拟结果依赖研究样本的指标，不等同真实部署效果。",
+    "method": "收集故事原文、即时复述和延迟复述，计算文本相似度与词汇特征，再用逻辑回归和交叉验证预测 Aβ 阳性及轻度认知障碍。",
+    "experiments_and_key_findings": "文本模型预测 Aβ 阳性的 AUC 为 0.77，预测轻度认知障碍/轻度 AD 的 AUC 为 0.83。论文还报告模拟的资源节省，但这不是前瞻性临床结果。",
     "limitations": {
       "author_reported": [
         "样本种族/族裔代表性有限（193 名白人、3 名亚洲参与者、4 名黑人/非裔美国人），作者要求在更多元人群复制验证；Discussion, PDF p. 10。",
@@ -91,8 +91,8 @@
         "作者披露与 Novoic 的雇佣、持股或顾问关系，解读时应一并关注。"
       ]
     },
-    "relation_to_research": "这是语音筛查阿尔茨海默方向的直接基线：故事回忆文本/语义信息可能与 Aβ 状态相关；但该文不是声学/音色分类。后续应区分语言内容、声学与韵律信号，并把输出限定为研究性预筛信号而非诊断。",
-    "what_can_be_done_next": "开展预注册外部验证：锁定模型和阈值，在更大、连续入组且覆盖普通话/方言/教育差异的队列测试；报告敏感度、特异度、校准、PPV/NPV、亚组误差和决策曲线。比较文本、声学、韵律的消融/融合，并使阳性结果只触发临床评估。"
+    "relation_to_research": "这项研究为语音认知筛查提供文本路线，可与声学特征、语言模型和多模态模型做受控比较。",
+    "what_can_be_done_next": "在独立队列中固定转写流程，比较文本、声学和多模态特征；同时做年龄、教育和语言背景分层，检查模型是否只学到人口统计差异。"
   },
   "bibtex": "@article{fristed2022leveraging,\n  title={Leveraging speech and artificial intelligence to screen for early Alzheimer's disease and amyloid beta positivity},\n  author={Fristed, Emil and Skirrow, Caroline and Meszaros, Marton and Lenain, Raphael and Meepegama, Udeepa and Papp, Kathryn V. and Ropacki, Michael and Weston, Jack},\n  journal={Brain Communications}, volume={4}, number={5}, pages={fcac231}, year={2022},\n  doi={10.1093/braincomms/fcac231}\n}",
   "evidence": [
