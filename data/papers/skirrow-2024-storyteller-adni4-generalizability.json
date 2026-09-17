@@ -70,6 +70,7 @@
     "research_questions": [
       {
         "type": "inferred",
+        "original_question": null,
         "question": "在 AMYPRED 开发的自动故事回忆模型能否泛化到 ADNI4 临床与远程队列及更广设备/人群？",
         "how": "提取文本相似度、词汇、时间和声学特征，在 AMYPRED 建模并应用到 ADNI4 样本外测试，比较 AUC、敏感度及相应阈值。",
         "answer": "G-match AUC：AMYPRED 0.82、ADNI4 临床 0.73、ADNI4 远程 0.75；跨队列保留一定区分能力，但绝对分数/决策阈值发生变化。",

@@ -65,6 +65,7 @@
     "research_questions": [
       {
         "type": "inferred",
+        "original_question": null,
         "question": "自动故事回忆的转写文本经文本对比模型分析后，能否识别 Aβ 阳性及 MCI/轻度 AD？",
         "how": "ParaBLEU 比较故事原文与即时/延迟复述，将向量表示用于逻辑回归，并以 PET/CSF 和既有临床分类作参照。",
         "answer": "全样本 Aβ 阳性 AUC=0.77、MCI/轻度 AD AUC=0.83；分层 Aβ 阳性 AUC 在 MCI/轻度 AD 组为 0.82、认知未受损组为 0.71。",
