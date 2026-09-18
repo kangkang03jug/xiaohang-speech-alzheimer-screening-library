@@ -13,7 +13,9 @@ test('English personal library exposes the Paper Pool, Quick Read, and detailed 
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('heading', { name: primaryDirection })).toBeVisible();
   await expect(page.locator('.hero-subtitle')).toHaveText('Research Library');
-  await expect(page.locator('.hero .lede')).toContainText('A personal research library on speech and language biomarkers');
+  await expect(page.locator('.hero .lede')).toContainText(
+    'A personal research library on speech and language biomarkers',
+  );
   await expect(page.getByRole('link', { name: 'Paper Pool', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Switch to Chinese' }).click();
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
