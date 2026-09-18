@@ -12,7 +12,7 @@ const nav = [
 ];
 ---
 <!doctype html>
-<html lang="en" data-locale="en" data-state-namespace={base}>
+<html lang="zh-CN" data-locale="zh-CN" data-state-namespace={base}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -20,7 +20,7 @@ const nav = [
     <title>{title ? `${title} · ` : ''}{profile?.profile?.library_name || 'Research Library'}</title>
     <script is:inline>
       try {
-        const locale = localStorage.getItem('research-library-locale') === 'zh-CN' ? 'zh-CN' : 'en';
+        const locale = localStorage.getItem('research-library-locale') === 'en' ? 'en' : 'zh-CN';
         document.documentElement.dataset.locale = locale;
         document.documentElement.lang = locale;
       } catch {}

@@ -1,10 +1,10 @@
 profile:
   researcher: XiaoHang
   library_name: XiaoHang’s Alzheimer’s Speech Screening Research Library
-  description: A personal research library on speech and language biomarkers, early Alzheimer’s screening, and external model validation.
+  description: 围绕语音与语言数字生物标志物，研究阿尔茨海默病早期筛查和跨队列模型验证。
 research_scope:
   primary:
-    - Speech-based Alzheimer’s disease screening
+    - 基于语音的阿尔茨海默病筛查
   secondary:
     - Speech and language digital biomarkers
     - Early cognitive screening and cross-cohort generalization
